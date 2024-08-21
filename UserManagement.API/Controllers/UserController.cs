@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UserManagement.API.Fake;
+using UserManagement.API.Models;
 
 
 namespace UserManagement.API.Controllers
@@ -9,9 +11,10 @@ namespace UserManagement.API.Controllers
 
     public class UserController:ControllerBase // miras aldım 
     {
-        public string Get() {
-
-            return " Get users";
+        private List<User> _users = FakeData.GetUsers(200); 
+        public List<User> Get() {
+            return _users;
+            
                 }
     }
 }
